@@ -150,6 +150,10 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        // manifestPlaceholders = [appLabel: project.env.get("APP_NAME")]
+        // manifestPlaceholders = [appLabel: "Talk Play Love"]
+        // resValue "string", "@string/app_name", "DEF"
+        resValue "string", "build_config_package", "com.rnc"
 
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -257,25 +261,37 @@ android {
     productFlavors {
         development {
             // dimension "default"
-            // applicationIdSuffix ".dev"
+            // applicationIdSuffix project.env.get("APP_ID_SUFFIX")
             // versionNameSuffix "-dev"
-            // manifestPlaceholders = [appLabel:"dev Taap"]
+            // manifestPlaceholders = project.env.get("APP_NAME")
             // resValue "string", "CodePushDeploymentKey", '"k-VJExRalxQKCQRPGI2xij3dlvvKvrGNZlOH-"'
+            manifestPlaceholders = [appLabel: "dev RNC"]
+            // manifestPlaceholders = [appLabel: project.env.get("APP_NAME")]
+            applicationIdSuffix project.env.get("APP_ID_SUFFIX")
+            // resValue "string", "@string/app_name", "DEV"
         }
         staging {
             // dimension "default"
-            // applicationIdSuffix ".stg"
+            // applicationIdSuffix project.env.get("APP_ID_SUFFIX")
             // versionNameSuffix "-stg"
-            // manifestPlaceholders = [appLabel:"stg Taap"]
+            // manifestPlaceholders = project.env.get("APP_NAME")
             // resValue "string", "CodePushDeploymentKey", '"TDMsJP1sEjyss4XCZh2mHAIV9kl0JOC8ve1jK"'
+            // manifestPlaceholders = [appLabel: "stg RNC"]
+            manifestPlaceholders = [appLabel: project.env.get("APP_NAME")]
+            applicationIdSuffix project.env.get("APP_ID_SUFFIX")
+            // resValue "string", "@string/app_name", "STG"
         }
         production {
             // dimension "default"
-//            applicationIdSuffix ".prd"
-//            versionNameSuffix "-prd"
-            // manifestPlaceholders = [appLabel:"Taap"]
+            // applicationIdSuffix project.env.get("APP_ID_SUFFIX")
+            // versionNameSuffix "-prd"
+            // manifestPlaceholders = project.env.get("APP_NAME")
             // resValue "string", "CodePushDeploymentKey", '"Q5OWGuNgR1KY1aVOnPBKbSxHzSO8vZP7dj_3N"'
-        }
+            // manifestPlaceholders = [appLabel: project.env.get("APP_NAME")]
+            manifestPlaceholders = [appLabel: "prd RNC"]
+            applicationIdSuffix project.env.get("APP_ID_SUFFIX")        
+            // resValue "string", "@string/app_name", "PRD"
+            }
     }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->

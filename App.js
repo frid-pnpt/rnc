@@ -62,17 +62,17 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const {
-    ENV,
-    APP_ID,
-    // BUILD_VERSION, 
-    APP_VERSION,
-    APP_NAME,
-    APP_API_URL
-  } = Config;
+  // const {
+  //   ENV,
+  //   APP_ID,
+  //   BUILD_VERSION, 
+  //   APP_VERSION,
+  //   APP_NAME,
+  //   APP_API_URL
+  // } = Config;
 
   useEffect(() => {
-    // console.warn(`[react-native-config Test] :`, Config)
+    console.warn(`[react-native-config Test] :`, Config)
   }, [])
 
   return (
@@ -84,8 +84,8 @@ const App: () => Node = () => {
         <Header />
         <View>
           <Text style={styles.text}>ENV : {Config.ENV}</Text>
-          <Text style={styles.text}>APP ID : {Config.APP_ID}</Text>
-          <Text style={styles.text}>Build Version : {Config.BUILD_VERSION}</Text>
+          {/* <Text style={styles.text}>APP ID : {Config.APP_ID}</Text> */}
+          {/* <Text style={styles.text}>Build Version : {Config.BUILD_VERSION}</Text> */}
           <Text style={styles.text}>App Version : {Config.APP_VERSION}</Text>
           <Text style={styles.text}>APP Name: {Config.APP_NAME}</Text>
           <Text style={styles.text}>API URL : {Config.APP_API_URL}</Text>
